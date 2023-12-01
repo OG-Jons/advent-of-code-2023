@@ -7,56 +7,12 @@ import (
 	"strings"
 )
 
-type numStr struct {
-	name string
-	num  int
-}
-
-var nums = []numStr{
-	{
-		name: "one",
-		num:  1,
-	},
-	{
-		name: "two",
-		num:  2,
-	},
-	{
-		name: "three",
-		num:  3,
-	},
-	{
-		name: "four",
-		num:  4,
-	},
-	{
-		name: "five",
-		num:  5,
-	},
-	{
-		name: "six",
-		num:  6,
-	},
-	{
-		name: "seven",
-		num:  7,
-	},
-	{
-		name: "eight",
-		num:  8,
-	},
-	{
-		name: "nine",
-		num:  9,
-	},
-}
-
 func SumCalculator() int {
-	vals := utils.ReadStringArrayFromFile("01-2")
+	values := utils.ReadStringArrayFromFile("01-2")
 
 	total := 0
 
-	for _, val := range vals {
+	for _, val := range values {
 		comb := getCombinedNum(val)
 		total += comb
 	}
@@ -87,18 +43,9 @@ func convertNumbers(input string) (int, int) {
 		"seven": 7,
 		"eight": 8,
 		"nine":  9,
-		// Add more numbers as needed
 	}
 
-	// Define a regular expression to find textual representations of numbers
-	//re := regexp.MustCompile(`(?:one|two|three|four|five|six|seven|eight|nine|1|2|3|4|5|6|7|8|9)`)
-
 	matches := findOverlappingMatches(input, "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-
-	// Find all matches in the input string
-
-	fmt.Println(input)
-	fmt.Println(matches)
 
 	// Convert textual representations to numeric values
 	var numericValues []int
@@ -112,7 +59,6 @@ func convertNumbers(input string) (int, int) {
 			}
 		}
 	}
-	fmt.Println(numericValues)
 
 	// Extract the first and last numeric values
 	var first, last int
